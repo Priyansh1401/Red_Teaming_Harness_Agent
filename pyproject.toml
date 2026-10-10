@@ -1,0 +1,25 @@
+[project]
+name = "redteam-harness"
+version = "0.1.0"
+description = "A configurable LangGraph harness for evaluating owned chatbot deployments."
+requires-python = ">=3.11"
+dependencies = [
+    "langgraph>=0.2.0",
+    "langchain-core>=0.3.0",
+    "langchain-openai>=0.2.0",
+    "langchain-ollama>=0.2.0",
+    "httpx>=0.27.0",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+redteam-harness = "redteam_harness.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
